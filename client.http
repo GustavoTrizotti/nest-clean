@@ -1,0 +1,27 @@
+
+@baseURL = http://localhost:3333
+
+# @name test
+GET {{baseURL}}/test
+
+###
+
+POST {{baseURL}}/accounts
+Content-Type: application/json
+
+{
+    "name": "Bruno Gabriel",
+    "email": "bruno@gmail.com",
+    "password": "3789"
+}
+
+###
+
+# @name authenticate
+POST {{baseURL}}/sessions
+Content-Type: application/json
+
+{
+    "email": "johndoe2@email.com",
+    "password": "123456"
+}
