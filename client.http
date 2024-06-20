@@ -1,5 +1,6 @@
 
 @baseURL = http://localhost:3333
+@authToken = {{authenticate.response.body.access_token}}
 
 # @name test
 GET {{baseURL}}/test
@@ -22,6 +23,25 @@ POST {{baseURL}}/sessions
 Content-Type: application/json
 
 {
-    "email": "johndoe2@email.com",
-    "password": "123456"
+    "email": "bruno@gmail.com",
+    "password": "3789"
 }
+
+###
+
+# @name create_question
+POST {{baseURL}}/questions
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "title": "Nova pergunta 2",
+    "content": "Conteúdo da pergunta"
+}
+
+###
+
+# @name get_recent_questions
+GET {{baseURL}}/questions?page=2
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
